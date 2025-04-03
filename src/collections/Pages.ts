@@ -1,8 +1,8 @@
-import { Hero } from '@/blocks/hero/schema'
-import { LandingAbout } from '@/blocks/landing-about/schema'
-import { Socials } from '@/blocks/socials/schema'
-import { Events } from '@/blocks/events/schema'
-import { About, Goals } from '@/about-blocks/schema'
+import { Hero } from '@/blocks/homepage/hero/schema'
+import { LandingAbout } from '@/blocks/homepage/home-about/schema'
+import { ServicesBlock } from '@/blocks/homepage/services/schema'
+import { WhyChooseUs } from '@/blocks/homepage/why-us/schema'
+import { OurTeam } from '@/blocks/homepage/our-team/schema'
 import type { CollectionConfig } from 'payload'
 
 export const Pages: CollectionConfig = {
@@ -27,7 +27,7 @@ export const Pages: CollectionConfig = {
       name: 'layout',
       label: 'Layout',
       type: 'blocks',
-      blocks: [Hero, LandingAbout, Socials, Events, About, Goals],
+      blocks: [Hero, LandingAbout, ServicesBlock, WhyChooseUs, OurTeam],
     },
   ],
 }
