@@ -1,14 +1,11 @@
-import { headers as getHeaders } from 'next/headers.js'
-import Image from 'next/image'
 import { getPayload } from 'payload'
 import React from 'react'
-import { fileURLToPath } from 'url'
+import HeroBlock from './components/homepage/HeroBlock'
 
 import config from '@/payload.config'
 import './globals.css'
 
 export default async function HomePage() {
-  const headers = await getHeaders()
   const payloadConfig = await config
   const payload = await getPayload({ config: payloadConfig })
   const {
@@ -24,5 +21,21 @@ export default async function HomePage() {
     return <div>Page not found</div>
   }
 
-  return <div></div>
+  // Render the page layout dynamically
+  return (
+    <div>
+      <div className="page">{page.layout?.map((block, index) => renderBlock(block, index))}</div>
+    </div>
+  )
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function renderBlock(block: any, index: number) {
+  switch (block.blockType) {
+    case 'hero':
+      return <HeroBlock key={index} block={block} />
+
+    default:
+      return null
+  }
 }

@@ -14,6 +14,10 @@ import { Pages } from './collections/Pages'
 import PracticeAreas from './collections/PracticeAreas'
 import Team from './collections/Team'
 
+// globals
+import { Header } from './globals/Header'
+import { Footer } from './globals/Footer'
+
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
@@ -25,6 +29,7 @@ export default buildConfig({
     },
   },
   collections: [Users, Media, Pages, PracticeAreas, Team],
+  globals: [Header, Footer],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

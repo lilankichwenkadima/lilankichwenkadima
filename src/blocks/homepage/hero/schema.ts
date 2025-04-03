@@ -1,5 +1,4 @@
 import { Block } from 'payload'
-import { lexicalEditor } from '@payloadcms/richtext-lexical'
 
 export const Hero: Block = {
   slug: 'hero',
@@ -8,9 +7,8 @@ export const Hero: Block = {
     {
       name: 'subheading',
       label: 'SubHeading',
-      type: 'richText',
+      type: 'textarea',
       required: true,
-      editor: lexicalEditor(),
     },
     {
       name: 'hero_image',
